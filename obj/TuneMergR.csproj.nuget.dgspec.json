@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Olligagman\\RiderProjects\\TuneMergR\\TuneMergR\\TuneMergR.csproj": {}
+    "C:\\Users\\Mikael\\RiderProjects\\TuneMergR\\TuneMergR.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Olligagman\\RiderProjects\\TuneMergR\\TuneMergR\\TuneMergR.csproj": {
+    "C:\\Users\\Mikael\\RiderProjects\\TuneMergR\\TuneMergR.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Olligagman\\RiderProjects\\TuneMergR\\TuneMergR\\TuneMergR.csproj",
+        "projectUniqueName": "C:\\Users\\Mikael\\RiderProjects\\TuneMergR\\TuneMergR.csproj",
         "projectName": "TuneMergR",
-        "projectPath": "C:\\Users\\Olligagman\\RiderProjects\\TuneMergR\\TuneMergR\\TuneMergR.csproj",
-        "packagesPath": "C:\\Users\\Olligagman\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Olligagman\\RiderProjects\\TuneMergR\\TuneMergR\\obj\\",
+        "projectPath": "C:\\Users\\Mikael\\RiderProjects\\TuneMergR\\TuneMergR.csproj",
+        "packagesPath": "C:\\Users\\Mikael\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Mikael\\RiderProjects\\TuneMergR\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Olligagman\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Mikael\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -43,6 +41,18 @@
             "MatBlazor": {
               "target": "Package",
               "version": "[2.9.0-develop-042, )"
+            },
+            "Microsoft.AspNetCore.Authentication.OpenIdConnect": {
+              "target": "Package",
+              "version": "[5.0.7, )"
+            },
+            "Microsoft.Extensions.SecretManager.Tools": {
+              "target": "Package",
+              "version": "[2.0.2, )"
+            },
+            "OAuth2": {
+              "target": "Package",
+              "version": "[0.10.1, )"
             },
             "System.Net.Http": {
               "target": "Package",
@@ -67,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\Mikael\\.dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

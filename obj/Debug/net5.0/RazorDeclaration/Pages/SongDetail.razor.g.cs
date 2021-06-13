@@ -13,84 +13,84 @@ namespace TuneMergR.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\Olligagman\RiderProjects\TuneMergR\TuneMergR\_Imports.razor"
+#line 1 "C:\Users\Mikael\RiderProjects\TuneMergR\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Olligagman\RiderProjects\TuneMergR\TuneMergR\_Imports.razor"
+#line 2 "C:\Users\Mikael\RiderProjects\TuneMergR\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\Olligagman\RiderProjects\TuneMergR\TuneMergR\_Imports.razor"
+#line 3 "C:\Users\Mikael\RiderProjects\TuneMergR\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\Olligagman\RiderProjects\TuneMergR\TuneMergR\_Imports.razor"
+#line 4 "C:\Users\Mikael\RiderProjects\TuneMergR\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\Olligagman\RiderProjects\TuneMergR\TuneMergR\_Imports.razor"
+#line 5 "C:\Users\Mikael\RiderProjects\TuneMergR\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\Olligagman\RiderProjects\TuneMergR\TuneMergR\_Imports.razor"
+#line 6 "C:\Users\Mikael\RiderProjects\TuneMergR\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\Olligagman\RiderProjects\TuneMergR\TuneMergR\_Imports.razor"
+#line 7 "C:\Users\Mikael\RiderProjects\TuneMergR\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\Olligagman\RiderProjects\TuneMergR\TuneMergR\_Imports.razor"
+#line 8 "C:\Users\Mikael\RiderProjects\TuneMergR\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\Olligagman\RiderProjects\TuneMergR\TuneMergR\_Imports.razor"
+#line 9 "C:\Users\Mikael\RiderProjects\TuneMergR\_Imports.razor"
 using TuneMergR;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\Olligagman\RiderProjects\TuneMergR\TuneMergR\_Imports.razor"
+#line 10 "C:\Users\Mikael\RiderProjects\TuneMergR\_Imports.razor"
 using TuneMergR.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Users\Olligagman\RiderProjects\TuneMergR\TuneMergR\_Imports.razor"
+#line 11 "C:\Users\Mikael\RiderProjects\TuneMergR\_Imports.razor"
 using MatBlazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 1 "C:\Users\Olligagman\RiderProjects\TuneMergR\TuneMergR\Pages\SongDetail.razor"
+#line 1 "C:\Users\Mikael\RiderProjects\TuneMergR\Pages\SongDetail.razor"
 using TuneMergR.Data;
 
 #line default
@@ -104,12 +104,10 @@ using TuneMergR.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 26 "C:\Users\Olligagman\RiderProjects\TuneMergR\TuneMergR\Pages\SongDetail.razor"
-       
-    private List<Song> _songList = new();
-    private readonly Song _songModel = new();
-    
-    
+#line 23 "C:\Users\Mikael\RiderProjects\TuneMergR\Pages\SongDetail.razor"
+ 
+    [Parameter]
+    public Song SongModel { get; set; }
 
 #line default
 #line hidden
