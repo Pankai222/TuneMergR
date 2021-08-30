@@ -1,4 +1,5 @@
 using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 using MatBlazor;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -30,8 +31,8 @@ namespace TuneMergR
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
             services.AddHttpClient<ISongService, SongService>();
+            services.AddScoped<HttpClient>();
             services.AddMatBlazor();
 
             services.Configure<CookiePolicyOptions>(options =>
@@ -100,8 +101,7 @@ namespace TuneMergR
                         }
                     };
                 });
-
-
+            
             services.AddHttpContextAccessor();
         }
 

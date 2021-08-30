@@ -1,19 +1,46 @@
 ﻿@page "/"
+@using TuneMergR.Services
+@using TuneMergR.Components
 @attribute [Authorize]
 
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
-
-@if (!_songList.Any())
+@if (isLoaded)
 {
-    foreach (var song in _songList)
+    foreach (var playlist in _playlists)
     {
-        <SongDetail SongModel="song"></SongDetail>
+        <div>
+            <PlaylistDetail PlaylistModel="@playlist">
+            </PlaylistDetail>
+        </div>
     }
 }
-<SongDetail></SongDetail>
+else
+{
+    <div>Loading screen...</div>
+}
+
+
+
 
 @code {
-    private List<Song> _songList = new();
+    bool displaySongs;
+    bool isLoaded;
+    bool songsLoaded;
+    private List<PlaylistChannelResult.Playlist> _playlists;
+    
+    [Inject]
+    public ISongService SongService { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var jsonPlaylistResult = await SongService.GetPlaylists();
+        _playlists = jsonPlaylistResult.Items;
+        
+        if (_playlists is not null)
+        {
+            if (_playlists.Any())
+            {
+                isLoaded = true;
+            }
+        }
+    }
 }

@@ -4,16 +4,10 @@ using TuneMergR.Data;
 
 namespace TuneMergR.Services
 {
-    public class ISongService
+    public interface ISongService
     {
-        Task<IEnumerable<Song>> GetSongs()
-        {
-            throw new System.NotImplementedException();
-        }
+        Task<PlaylistSongResult> GetSongsForPlaylist(string playlistId);
 
-        Task<IEnumerable<Playlist>> GetPlaylists()
-        {
-            throw new System.NotImplementedException();
-        }
+        Task<PlaylistChannelResult> GetPlaylists();
     }
 }

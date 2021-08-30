@@ -1,0 +1,42 @@
+﻿@using TuneMergR.Data
+
+<style>
+    .mat-card {
+        max-width: 400px;
+        margin: 5px;
+        float: left;
+    }
+
+    .song-img {
+        max-width: 70px;
+        max-height: 70px;
+    }
+    
+    .inline {
+        display: inline;
+    }
+</style>
+
+@if (SongModel is not null && !SongModel.Snippet.Title.Contains("Deleted video"))
+{
+    <MatCard Class="mat-card">
+        <MatCardContent>
+            <div>
+                @if (@SongModel.Snippet.Thumbnails.High is not null)
+                {
+                    <img class="song-img inline" src="@SongModel.Snippet.Thumbnails.High.Url" alt="Song poster"/>
+                }
+                <p class="inline" style="margin-left: 6px">@SongModel.Snippet.Title</p>
+            </div>
+        </MatCardContent>
+    </MatCard>
+}
+
+
+
+
+@code
+{
+    [Parameter]
+    public PlaylistSongResult.Song SongModel { get; set; }
+}

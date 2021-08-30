@@ -1,0 +1,85 @@
+@using TuneMergR.Services
+@using TuneMergR.Components
+@attribute [Authorize]
+
+<style>
+    .mat-card {
+        width: 400px;
+        max-width: 400px;
+        margin: 10px;
+        float: left;
+    }
+
+    .mat-card-content {
+        padding: 1rem;
+    }
+
+    .mat-card-clean-margin {
+        margin: 1px;
+    }
+</style>
+
+@if (PlaylistModel is not null)
+{
+    <MatCard Class="mat-card">
+        <MatCardContent>
+            <MatCardMedia Wide="true" ImageUrl="@PlaylistModel.Snippet.Thumbnails.High.Url"/>
+            <div class="mat-card-content">
+                <MatHeadline6 class="demo-mat-card-clean-margin">
+                    @PlaylistModel.Snippet.Title
+                </MatHeadline6>
+                <MatSubtitle2 class="mat-card-clean-margin">Number of songs: @PlaylistModel.ContentDetails.ItemCount</MatSubtitle2>
+            </div>
+            <div>
+                <MatButton Outlined="true" style="width: 100%" @onclick="@ShowSongs">Show songs</MatButton>
+                <div hidden="@HideSongs">
+                    @if (SongsLoaded)
+                    {
+                        foreach (var song in _songList) 
+                        {
+                            <SongDetail SongModel="@song"></SongDetail>
+                        }
+                    }
+                </div>
+            </div>
+        </MatCardContent>
+    </MatCard>
+}
+
+
+
+
+@code {
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public PlaylistChannelResult.Playlist PlaylistModel { get; set; }
+
+    [Inject]
+    public ISongService SongService { get; set; }
+    
+    private List<PlaylistSongResult.Song> _songList;
+    public bool HideSongs { get; set; } = true;
+    public bool SongsLoaded { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var jsonSongResult = await SongService.GetSongsForPlaylist(PlaylistModel.Id);
+        _songList = jsonSongResult.Items;
+
+        if (_songList is not null)
+        {
+            if (_songList.Any())
+            {
+                SongsLoaded = true;
+            }
+        }
+    }
+
+    private void ShowSongs()
+    {
+        HideSongs = !HideSongs;
+    }
+}
