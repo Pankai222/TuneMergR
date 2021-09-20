@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using TuneMergR.Data;
 using TuneMergR.Services;
 
 
@@ -18,6 +17,7 @@ namespace TuneMergR
 {
     public class Startup
     {
+        private string _youtubeApiKey = null;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -103,6 +103,8 @@ namespace TuneMergR
                 });
             
             services.AddHttpContextAccessor();
+            
+            _youtubeApiKey = Configuration["Youtube:ServiceApiKey"];
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

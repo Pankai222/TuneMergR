@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
 using MatBlazor;
 using Microsoft.Extensions.Configuration;
@@ -12,8 +11,6 @@ namespace TuneMergR.Services
         private readonly HttpClient _httpClient;
         private readonly IConfiguration _config;
 
-        private string YoutubeApiKey => "AIzaSyC7CZQDlrkqzoidlBGZU8dScnDh5AzKIC8";
-
         public SongService(HttpClient httpClient, IConfiguration config)
         {
             _httpClient = httpClient;
@@ -23,7 +20,8 @@ namespace TuneMergR.Services
         public async Task<PlaylistSongResult> GetSongsForPlaylist(string playlistId)
         {
             var songsForPlaylistCall =
-                $"https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=5&playlistId={playlistId}&key={YoutubeApiKey}";
+                $"https://youtube.googleapis.com/youtube/v3/playlistItems?" +
+                $"part=snippet%2CcontentDetails&maxResults=5&playlistId={playlistId}&key={_config["Youtube:ServiceApiKey"]}";
 
             return await _httpClient.GetJsonAsync<PlaylistSongResult>(songsForPlaylistCall);
         }
@@ -32,7 +30,7 @@ namespace TuneMergR.Services
         {
             var playlistCall = "https://youtube.googleapis.com/youtube/v3/playlists?" +
                                "part=snippet%2CcontentDetails&maxResults=25" +
-                               $"&channelId=UCTyzldDN3n79qQemELCD4FQ&key={YoutubeApiKey}";
+                               $"&channelId=UCTyzldDN3n79qQemELCD4FQ&key={_config["Youtube:ServiceApiKey"]}";
 
             return await _httpClient.GetJsonAsync<PlaylistChannelResult>(playlistCall);
         }
